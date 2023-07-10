@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.work.CoroutineWorker
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.lrm.birthdayreminder.MainActivity
@@ -18,11 +19,11 @@ import com.lrm.birthdayreminder.constants.NOTIFICATION_ID
 import com.lrm.birthdayreminder.database.EventRoomDatabase
 import java.util.Calendar
 
-class EventReminderWorker(ctx: Context, params: WorkerParameters): Worker(ctx, params) {
+class EventReminderWorker(ctx: Context, params: WorkerParameters): CoroutineWorker(ctx, params) {
 
     val context = ctx
 
-    override fun doWork(): Result {
+    override suspend fun doWork(): Result {
 
         val calendar = Calendar.getInstance()
 
