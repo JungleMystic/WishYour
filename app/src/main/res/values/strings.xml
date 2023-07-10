@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Wish Your</string>
+
+    <string name="add_event">Add Event</string>
+    <string name="event">Event:</string>
+    <string name="birthday">Birthday</string>
+    <string name="wedding_day">Wedding Day</string>
+    <string name="set_date">Set Date:</string>
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="delete_title">Deleting Item</string>
+    <string name="delete_question">Are you sure you want to delete?</string>
+    <string name="channel_name">event_channel</string>
+    <string name="channel_description">event_reminder</string>
+    <string name="event_detail">Event Detail</string>
+    <string name="get_full_age">Get Full Age</string>
+    <string name="name">Name</string>
+    <string name="sample_name">Rammohan</string>
+    <string name="event_date">Event Date</string>
+    <string name="age">Age</string>
+
+    <string name="my_age_is">%1$s</string>
+
+    <string name="years_result_head">Years</string>
+    <string name="years_result">%1$s</string>
+
+    <string name="months_result_head">Months</string>
+    <string name="months_result">%1$s</string>
+
+    <string name="weeks_result_head">Weeks</string>
+    <string name="weeks_result">%1$s</string>
+
+    <string name="days_result_head">Days</string>
+    <string name="days_result">%1$s</string>
+
+    <string name="hours_result_head">Hours</string>
+    <string name="hours_result">%1$s</string>
+
+    <string name="minutes_result_head">Minutes</string>
+    <string name="minutes_result">%1$s</string>
+
+    <string name="seconds_result_head">Seconds</string>
+    <string name="seconds_result">%1$s</string>
+    <string name="date">Date</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings">Settings</string>
+    <string name="set_time">Set Time</string>
+    <string name="notifications">Notifications</string>
+    <string name="set">Set</string>
+    <string name="notification_time">Notification Time</string>
+</resources>
