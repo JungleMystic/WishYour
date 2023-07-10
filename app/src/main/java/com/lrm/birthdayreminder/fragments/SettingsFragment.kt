@@ -13,6 +13,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.lrm.birthdayreminder.BirthdayApplication
 import com.lrm.birthdayreminder.data.SettingsDataStore
 import com.lrm.birthdayreminder.databinding.FragmentSettingsBinding
@@ -57,6 +58,8 @@ class SettingsFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.backIcon.setOnClickListener { findNavController().navigateUp() }
 
         pickedTime.observe(viewLifecycleOwner) {time ->
             binding.time.text = time

@@ -47,6 +47,8 @@ class EventDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.backIcon.setOnClickListener { findNavController().navigateUp() }
+
         binding.progressBar.visibility = View.GONE
         binding.gridLayout.visibility = View.GONE
         binding.fullAgeResultLL.visibility = View.GONE
