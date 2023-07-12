@@ -5,7 +5,7 @@
     <string name="event">Event:</string>
     <string name="birthday">Birthday</string>
     <string name="wedding_day">Wedding Day</string>
-    <string name="set_date">Set Date:</string>
+    <string name="set_date">Set Date -></string>
     <string name="day">Day</string>
     <string name="month">Month</string>
     <string name="year">Year</string>
@@ -48,11 +48,13 @@
     <string name="seconds_result_head">Seconds</string>
     <string name="seconds_result">%1$s</string>
     <string name="date">Date</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="settings">Settings</string>
     <string name="set_time">Set Time</string>
     <string name="notifications">Notifications</string>
     <string name="set">Set</string>
     <string name="notification_time">Notification Time</string>
+    <string name="day_string">Day: %1$d</string>
+    <string name="month_string">Month: %1$d</string>
+    <string name="year_string">Year: %1$d</string>
 </resources>

@@ -24,9 +24,9 @@ class EventViewModel(private val eventDao: EventDao) : ViewModel() {
     val allEvents = eventDao.getAllEvents().asLiveData()
 
     private val calendar = Calendar.getInstance()
-    private val currentYear = calendar.get(Calendar.YEAR)
-    private val currentMonth = calendar.get(Calendar.MONTH)
-    private val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
+    val currentYear = calendar.get(Calendar.YEAR)
+    val currentMonth = calendar.get(Calendar.MONTH)
+    val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
 
     var fullAge = ""
 
@@ -50,18 +50,15 @@ class EventViewModel(private val eventDao: EventDao) : ViewModel() {
         day: Int,
         month: Int,
         year: Int,
-        age: Int
     ): Event {
         return Event(
             name = name,
             eventType = eventType,
             day = day,
             month = month,
-            year = year,
-            ageInYears = age
+            year = year
         )
     }
-
 
     fun addNewEvent(
         name: String,
@@ -69,9 +66,8 @@ class EventViewModel(private val eventDao: EventDao) : ViewModel() {
         day: Int,
         month: Int,
         year: Int,
-        age: Int
     ) {
-        val event = getEventData(name, eventType, day, month, year, age)
+        val event = getEventData(name, eventType, day, month, year)
         insertEvent(event)
     }
 
@@ -84,25 +80,13 @@ class EventViewModel(private val eventDao: EventDao) : ViewModel() {
         if (name.isNotEmpty() && day.isNotEmpty() && month.isNotEmpty() && year.isNotEmpty()) {
             if (day.toInt() in 1..31) {
                 if (month.toInt() in 1..12) {
-                    if (year.toInt() in 1947..2023) {
+                    if (year.toInt() in 1900..currentYear) {
                         return true
                     }
                 }
             }
         }
         return false
-    }
-
-    fun calculateAge(dob_month: Int, dob_year: Int): Int {
-
-        val mCurrentMonth = currentMonth + 1
-        var mCurrentYear = currentYear
-
-        if (dob_month > mCurrentMonth) {
-            mCurrentYear -= 1
-        }
-
-        return mCurrentYear - dob_year
     }
 
     fun calculateFullAge(dob_date: Int, dob_month: Int, dob_year: Int) {
@@ -206,6 +190,42 @@ class EventViewModel(private val eventDao: EventDao) : ViewModel() {
 
     fun cancelWork() {
         WorkManager.getInstance().cancelUniqueWork(EVENT_REMINDER_WORK)
+    }
+
+    private fun getUpdatedEventData(
+        eventId: Int,
+        name: String,
+        eventType: Int,
+        day: Int,
+        month: Int,
+        year: Int,
+    ): Event {
+        return Event(
+            id = eventId,
+            name = name,
+            eventType = eventType,
+            day = day,
+            month = month,
+            year = year
+        )
+    }
+
+    fun updateEvent(
+        eventId: Int,
+        name: String,
+        eventType: Int,
+        day: Int,
+        month: Int,
+        year: Int,
+    ) {
+        val updatedEvent = getUpdatedEventData(eventId, name, eventType, day, month, year)
+        updateEventData(updatedEvent)
+    }
+
+    private fun updateEventData(event: Event) {
+        viewModelScope.launch {
+            eventDao.update(event)
+        }
     }
 }
 

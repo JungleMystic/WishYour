@@ -16,6 +16,7 @@ import com.lrm.birthdayreminder.BirthdayApplication
 import com.lrm.birthdayreminder.R
 import com.lrm.birthdayreminder.database.Event
 import com.lrm.birthdayreminder.databinding.FragmentEventDetailBinding
+import com.lrm.birthdayreminder.others.calculateAge
 import com.lrm.birthdayreminder.viewModel.EventViewModel
 import com.lrm.birthdayreminder.viewModel.EventViewModelFactory
 
@@ -65,11 +66,25 @@ class EventDetailFragment : Fragment() {
     }
 
     private fun bind(event: Event) {
+
+        if (event.eventType == 0) {
+            binding.cakeImg.setImageResource(R.drawable.app_icon)
+            binding.eventNameHead.text = "Birthday"
+        } else if (event.eventType == 1) {
+            binding.cakeImg.setImageResource(R.drawable.cake_icon)
+            binding.eventNameHead.text = "Wedding day"
+        }
+
         binding.apply {
             name.text = event.name
             eventDate.text = "${event.day}/${event.month}/${event.year}"
-            age.text = "${event.ageInYears}"
+            age.text = "${calculateAge(event.day, event.month, event.year)}"
             deleteButton.setOnClickListener { showConfirmationDialog() }
+        }
+
+        binding.editItemFab.setOnClickListener {
+            val action = EventDetailFragmentDirections.actionEventDetailFragmentToAddEventFragment(event.id)
+            this.findNavController().navigate(action)
         }
     }
 

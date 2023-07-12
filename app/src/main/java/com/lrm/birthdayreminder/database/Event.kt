@@ -18,6 +18,4 @@ data class Event(
     val month: Int,
     @ColumnInfo(name = "year")
     val year: Int,
-    @ColumnInfo(name = "age")
-    val ageInYears: Int
 )

@@ -30,6 +30,10 @@
             app:destination="@id/birthdaysListFragment"
             app:popUpTo="@id/birthdaysListFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="event_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
     <fragment
         android:id="@+id/eventDetailFragment"
