@@ -5,7 +5,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AddEventFragment">
+    tools:context=".fragments.AddEventFragment"
+    android:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -123,6 +124,7 @@
             android:layout_height="wrap_content"
             android:text="@string/birthday"
             android:textSize="18sp"
+            android:textColor="@color/black"
             app:buttonTint="@color/blue"/>
 
         <RadioButton
@@ -131,6 +133,7 @@
             android:layout_height="wrap_content"
             android:text="@string/wedding_day"
             android:textSize="18sp"
+            android:textColor="@color/black"
             android:layout_marginStart="10dp"
             app:buttonTint="@color/blue"/>
 
@@ -200,7 +203,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:backgroundTint="@color/blue"
-            android:text="@string/save" />
+            android:text="@string/save"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
